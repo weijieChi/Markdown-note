@@ -1,0 +1,1 @@
+# Javascript 當中 AJAX 操作的方法

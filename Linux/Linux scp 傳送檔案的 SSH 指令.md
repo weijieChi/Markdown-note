@@ -41,7 +41,7 @@ scp [參數] [使用者@主機IP]:來源檔案 [使用者@主機IP]:目的檔案
 
 ## 從 windows 下載 Linux 遠端檔案 (使用 powershell)
 
-```
+```ps1
 PS C:\Users\weijie\Documents\SSH_Download_practice> scp weijie@192.168.56.101:/home/weijie/test.txt .
 weijie@192.168.56.101's password:
 test.txt                                                                              100%    5     1.3KB/s   00:00
@@ -51,12 +51,20 @@ PS C:\Users\weijie\Documents\SSH_Download_practice>
 
 ## 把本地端檔案上傳到遠端 Linux 主機 (使用 powershell)
 
-```
+```ps1
 PS C:\Users\weijie\Documents\SSH_Download_practice> scp .\FromWindowsFile.txt weijie@192.168.56.101:/home/weijie/
 weijie@192.168.56.101's password:
 FromWindowFile.txt                                                                    100%   25     8.3KB/s   00:00
 PS C:\Users\weijie\Documents\SSH_Download_practice>
 ```
+
+## 檔案名稱中有空白字元的處理方式
+```ps1
+scp weijie@192.168.138.26:/home/weijie/space*test.txt ./  # 目前測試只有這個指令可以在 windows 10 powershell 使用
+scp weijie@192.168.138.26:/home/weijie/space\\\ test.txt ./
+scp weijie@192.168.138.26:"/home/weijie/space\ test.txt" ./
+```
+    https://www.reddit.com/r/PowerShell/comments/e7nmjp/scp_path_with_spaces/
 
 # 參考
 
